@@ -11,5 +11,6 @@ jobs:
          lfs: true
     - name: Run a one-line script
       run: du -a
-    - uses: mikeal/publish-to-github-action@master
+    - name: Test
+      uses: mikeal/publish-to-github-action@master
       run: git lfs install
