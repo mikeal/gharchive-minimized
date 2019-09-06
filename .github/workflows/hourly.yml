@@ -1,0 +1,22 @@
+on:
+  schedule:
+    - cron:  '10 * * * *'
+name: Pull Data and Build
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build
+      uses: actions/npm@master
+      with:
+        entrypoint: npm
+        args: install
+    - name: Pull
+      uses: mikeal/npx@master
+      with:
+        args: min-gharchive action
+    - uses: mikeal/publish-to-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
