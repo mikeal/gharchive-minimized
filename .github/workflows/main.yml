@@ -9,8 +9,3 @@ jobs:
     - uses: actions/checkout@v1
       with:
          lfs: true
-    - name: Run a one-line script
-      run: du -a
-    - name: Test
-      uses: mikeal/publish-to-github-action@master
-      run: git lfs install
