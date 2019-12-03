@@ -9,14 +9,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build
-      uses: actions/npm@master
-      with:
-        entrypoint: npm
-        args: install
+      run: npm install
     - name: Pull
-      uses: mikeal/npx@master
-      with:
-        args: min-gharchive action
+      run: npx min-gharchive action
     - uses: mikeal/publish-to-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
